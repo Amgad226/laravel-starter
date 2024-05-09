@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Profile\Enums;
+namespace App\Enums;
 use App\Traits\BaseEnum;
 
 enum SuspensionStatusEnum:string 

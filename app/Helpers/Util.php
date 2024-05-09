@@ -6,17 +6,7 @@ use App\Classes\StoredFile;
 use App\Enums\StoreInSessionKeyEnum;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Resources\StoredFileCloudResource;
 use Carbon\Carbon;
-use Illuminate\Support\Str;
-
-
-
-/**
- * Class UtilHelper
- *  
- **/
 
 class Util
 {
@@ -119,9 +109,7 @@ class Util
 
 
 
-    //!SECTION [File]
-
-
+    //SECTION [File]
     public static function fileStore($folder, $file, $file_name, $disk = 'temp')
     {
         $folder_path = uniqid($folder . '_', false);
@@ -169,14 +157,14 @@ class Util
 
     public static function stringBetweenTwoString($str, $starting_word, $ending_word)
     {
-        $subtring_start = strpos($str, $starting_word);
+        $sub_string_start = strpos($str, $starting_word);
         //Adding the starting index of the starting word to
         //its length would give its ending index
-        $subtring_start += strlen($starting_word);
+        $sub_string_start += strlen($starting_word);
         //Length of our required sub string
-        $size = strpos($str, $ending_word, $subtring_start) - $subtring_start;
+        $size = strpos($str, $ending_word, $sub_string_start) - $sub_string_start;
         // Return the substring from the index substring_start of length size
-        return substr($str, $subtring_start, $size);
+        return substr($str, $sub_string_start, $size);
     }
 
     // SECTION [Get data from session] 

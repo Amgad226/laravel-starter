@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Category\Entities;
+namespace App\Models;
 
 use Astrotomic\Translatable\Translatable;
 use App\Models\BaseModel;
@@ -8,7 +8,7 @@ use App\Models\BaseModel;
 
 class Suspension  extends BaseModel
 {
-    use   Translatable;
+    use Translatable;
 
     protected $fillable = [
         'suspensionable_id',

@@ -5,8 +5,8 @@ namespace App\Traits;
 use Illuminate\Support\Str;
 use App\Suspensions\GeneralPendingSuspension;
 use App\Abstracts\AbstractSuspension;
-use Modules\Category\Entities\Suspension;
-use Modules\Profile\Enums\SuspensionStatusEnum;
+use App\Models\Suspension;
+use App\Enums\SuspensionStatusEnum;
 
 /**
  * Suspension trait that used with suspensionable traits
@@ -15,8 +15,6 @@ trait Suspensionable
 {
     protected static function bootSuspensionable(): void
     {
-        //REVIEW if we want to return work this global scope must edit remove bootSuspensionable in Workplace model 
-        //REVIEW - may be need this global scope
         // static::addGlobalScope(new SuspensionScope);
     }
     public function suspensions()
@@ -37,7 +35,7 @@ trait Suspensionable
 
     public function suspend(AbstractSuspension $suspension = new GeneralPendingSuspension())
     {
-        //ANCHORE - if there is multi suspensions feature it needs to be fixed here
+        //TODO - if there is multi suspensions feature it needs to be fixed here
         $this->suspensions()->delete();
         $this->hardSuspend($suspension->getReason('en'), $suspension->getReason('ar'), $suspension->getType());
     }
@@ -69,7 +67,7 @@ trait Suspensionable
     }
 
 
-    // this filter can call from params  or call inside query in case $shape==false 
+    // this filter can call from params or call inside query in case $shape==false 
     public function scopeSuspended($query, $shape = null)
     {
         if (is_null($shape)) {

@@ -3,7 +3,7 @@
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Modules\Profile\Entities\Profile;
+use App\Models\Profile;
 
 
 /**

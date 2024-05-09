@@ -5,6 +5,7 @@ namespace App\Filters;
 
 use Spatie\QueryBuilder\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
+
 /**
  * Class RangeFilter
  * A custom filter used by the spatie/query-builder Package
@@ -21,26 +22,20 @@ class RangeFilter implements Filter
      */
     //TODO must improve this filter shape 
     public function __invoke(Builder $query, $value, $property)
-    {  
-         if(is_array($value))
-         { 
+    {
+        if (is_array($value)) {
             $start =  array_shift(($value));
             $end =  array_shift(($value));
 
-if(array_key_exists('base',$start) ){
-    if($start['base'] == 'between' || $start['base'] == null){
-        $query->whereBetween($property,[$start['value'],$end['value']]);
-    }
-    else
-    {
-        $query->orWhereBetween($property,[$start['value'],$end['value']]);
-    }
-}
-else
-{ 
-    $query->whereBetween($property,[$start['value'],$end['value']]);
-}
- }
-
+            if (array_key_exists('base', $start)) {
+                if ($start['base'] == 'between' || $start['base'] == null) {
+                    $query->whereBetween($property, [$start['value'], $end['value']]);
+                } else {
+                    $query->orWhereBetween($property, [$start['value'], $end['value']]);
+                }
+            } else {
+                $query->whereBetween($property, [$start['value'], $end['value']]);
+            }
+        }
     }
 }

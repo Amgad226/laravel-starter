@@ -3,7 +3,6 @@
 namespace App\Casters;
 
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
-use App\Models\BaseModel;
 use MatanYadaev\EloquentSpatial\Objects\Point;
 
 /**

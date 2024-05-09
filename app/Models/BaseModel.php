@@ -2,14 +2,8 @@
 
 namespace App\Models;
 
-use Error;
-use Event;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Modules\Auth\Entities\User;
-use Spatie\Activitylog\LogOptions;
-use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Base model that all models in the system inherit from it

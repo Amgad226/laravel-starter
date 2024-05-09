@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "astrotomic/laravel-translatable": "^11.13",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
@@ -25,7 +26,6 @@
         "laravel/telescope": "^5.0",
         "spatie/laravel-ignition": "^2.0",
         "doctrine/dbal": "^3.7"
-
     },
     "autoload": {
         "psr-4": {
